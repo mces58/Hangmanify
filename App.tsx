@@ -1,5 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
+import { StatusBar } from 'expo-status-bar';
+
 import Main from 'src/Main';
 
 export default function App() {
@@ -7,7 +10,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
       <StatusBar style="auto" />
-      <Main/>
+      <Main />
     </View>
   );
 }
