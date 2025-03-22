@@ -4,11 +4,16 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+import customTsRules from './plugins/rules/index.mjs';
+
 export default defineConfig([
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+      parserOptions: { project: 'tsconfig.json', tsconfigRootDir: import.meta.dirname },
+    },
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
@@ -18,7 +23,7 @@ export default defineConfig([
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
-    ignores: ['node_modules', 'yarn.lock'],
+    ignores: ['node_modules', 'yarn.lock', 'plugins'],
   },
   {
     settings: {
@@ -28,7 +33,35 @@ export default defineConfig([
     },
   },
   {
+    plugins: {
+      '@custom-typescript': customTsRules,
+    },
+  },
+  {
     rules: {
+      //* custom rules
+      '@custom-typescript/filename-match-component': 'error',
+      '@custom-typescript/jsx-sort-props': 'error',
+      '@custom-typescript/require-try-catch-async': 'error',
+      '@custom-typescript/require-usestate-type': 'error',
+
+      //- typescript rules
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'error',
+      '@typescript-eslint/no-deprecated': 'error',
+      '@typescript-eslint/no-duplicate-enum-values': 'error',
+      '@typescript-eslint/no-duplicate-type-constituents': 'error',
+      '@typescript-eslint/no-empty-object-type': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-inferrable-types': 'error',
+      '@typescript-eslint/no-mixed-enums': 'error',
+      '@typescript-eslint/no-require-imports': 'error',
+      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+      '@typescript-eslint/no-unsafe-assignment': 'error',
+
+      //+ native eslint rules
       semi: ['error', 'always'],
       curly: ['error', 'multi-or-nest'],
       eqeqeq: 'error',
@@ -53,7 +86,7 @@ export default defineConfig([
       'func-name-matching': ['error', 'never'],
       'func-names': ['error', 'as-needed'],
       'guard-for-in': 'error',
-      'id-length': ['error', { exceptions: ['x', 'y', 'z', 'i'], max: 20, min: 2 }],
+      'id-length': ['error', { exceptions: ['x', 'y', 'z', 'i'], max: 30, min: 2 }],
       'logical-assignment-operators': ['error', 'always'],
       'no-alert': 'error',
       'no-array-constructor': 'error',
