@@ -1,0 +1,8 @@
+npx --no-install lint-staged
+
+branch_name=$(git branch --show-current)
+
+if [ "$branch_name" = "master" ]; then
+  echo "You are on master branch. Please create a new branch to commit changes."
+  exit 1
+fi

@@ -1,0 +1,4 @@
+bash "$(dirname "$0")/../scripts/commit-lint-check.sh" "$1"
+bash "$(dirname "$0")/../scripts/commit-tense-check.sh" "$1"
+
+exit 0

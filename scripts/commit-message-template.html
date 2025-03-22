@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commit Message Format Guidelines</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .good-examples,
+      .bad-examples {
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      .good-examples {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+      }
+      .bad-examples {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+      }
+      .success-color {
+        color: #198754;
+      }
+      .danger-color {
+        color: #dc3545;
+      }
+      .normal-color {
+        color: #1e1e1e;
+      }
+    </style>
+  </head>
+
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h1 class="h3 mb-0">Commit Message Format Guidelines</h1>
+        </div>
+        <div class="card-body">
+          <p class="lead">
+            A well-structured commit message enhances code readability and project
+            maintenance. Follow the guidelines below to ensure consistency and clarity in
+            your commit messages.
+          </p>
+
+          <h2 class="mt-4">STRUCTURE</h2>
+          <p>Each commit message should adhere to the following format:</p>
+          <pre class="bg-light p-2">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</pre>
+
+          <h5 class="mt-4 text-decoration-underline">1. <strong>TYPE</strong></h5>
+          <p>
+            <strong>Description:</strong> The type indicates the purpose of the commit.
+          </p>
+          <p><strong>Options:</strong> Use one of the following predefined types:</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><code>feat</code>: A new feature.</li>
+            <li class="list-group-item"><code>fix</code>: A bug fix.</li>
+            <li class="list-group-item">
+              <code>change</code>: A broad category for non-breaking changes.
+            </li>
+            <li class="list-group-item">
+              <code>chore</code>: Routine tasks like refactoring, dependency updates.
+            </li>
+            <li class="list-group-item"><code>docs</code>: Documentation changes.</li>
+            <li class="list-group-item">
+              <code>style</code>: Code style changes (formatting, missing semicolons,
+              etc.).
+            </li>
+            <li class="list-group-item"><code>perf</code>: Performance improvements.</li>
+            <li class="list-group-item"><code>test</code>: Adding or updating tests.</li>
+          </ul>
+          <p class="mt-3">
+            <strong>Case:</strong> Lowercase (e.g., <code>feat</code>, <code>fix</code>,
+            <code>change</code>).
+          </p>
+
+          <h5 class="mt-4 text-decoration-underline">2. <strong>SCOPE</strong></h5>
+          <p>
+            <strong>Description:</strong> The scope provides context about the area of the
+            codebase the commit affects.
+          </p>
+          <p>
+            <strong>Format:</strong> Use a short, descriptive noun in kebab-case (e.g.,
+            <code>module</code>, <code>component</code>, <code>file-name</code>).
+          </p>
+          <p><strong>Examples:</strong></p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <code>fix(auth-service): correct token validation</code>
+            </li>
+            <li class="list-group-item">
+              <code>feat(ui-button): add loading spinner</code>
+            </li>
+          </ul>
+
+          <h5 class="mt-4 text-decoration-underline">3. <strong>SUBJECT</strong></h5>
+          <p><strong>Description:</strong> A concise description of the change.</p>
+          <p>
+            <strong>Format:</strong> Write in the imperative mood, as if giving a command
+            or instruction.
+          </p>
+          <p>
+            <strong>Case:</strong> Lowercase (e.g., <code>add</code>, <code>fix</code>,
+            <code>update</code>).
+          </p>
+          <p><strong>Avoid:</strong></p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Ending with a period (<code>.</code>).</li>
+            <li class="list-group-item">
+              Starting with a capital letter unless the subject is a proper noun.
+            </li>
+          </ul>
+
+          <h5 class="mt-4 text-decoration-underline">4. <strong>LENGTH</strong></h5>
+          <p>
+            <strong>Subject line:</strong> The subject line should not exceed 100
+            characters.
+          </p>
+          <p>
+            <strong>Body (optional):</strong> If necessary, add a more detailed
+            description in the body after a blank line following the subject.
+          </p>
+
+          <h5 class="mt-4 text-decoration-underline">
+            5. <strong>CONTAINS A VERB</strong>
+          </h5>
+          <p>
+            <strong>Description:</strong> The commit message must contain at least one
+            verb.
+          </p>
+          <p>
+            <strong>Example:</strong>
+          </p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <code>feat(ui): add loading spinner</code>
+            </li>
+            <li class="list-group-item">
+              <code>docs(readme): update installation steps</code>
+            </li>
+          </ul>
+
+          <h5 class="mt-4 text-decoration-underline">6. <strong>VERB TENSE</strong></h5>
+          <p>
+            <strong>Description:</strong>
+            The script checks if the verb in the commit message is in the past tense. The
+            recommended practice is to use the imperative mood (present tense) for commit
+            messages.
+          </p>
+          <p>
+            <strong>Wrong Example:</strong>
+          </p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <code>docs(readme): updated installation steps</code>
+            </li>
+          </ul>
+          <p>
+            <strong>Correct Example:</strong>
+          </p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <code>docs(readme): update installation steps</code>
+            </li>
+          </ul>
+
+          <h2 class="h4 mt-5">Example Commit Messages</h2>
+
+          <div class="row justify-content-around">
+            <div class="col-md-5 good-examples">
+              <strong class="success-color">Good Examples:</strong>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    <mark>feat</mark>(theme): add theme provider for dynamic theme
+                    switching
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    feat<mark>(localization)</mark>: configure i18n-js for TR and EN
+                    language support
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    feat<mark>(app)</mark>: add splash screen and app icon
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    chore(<mark>set-up</mark>): add ESLint rules for code linting
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    docs(file): <mark>add</mark> README file with project overview
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    fix(auth-service)<mark>: </mark>correct token validation
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    chore(deps)<mark>:</mark> update dependency versions
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    docs(readme): clarify installation steps<mark></mark>
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    test(unit): <mark>add</mark> test cases for login component
+                  </code>
+                </li>
+                <li class="list-group-item good-examples">
+                  <code class="normal-color">
+                    feat(ui): lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Nostrum, dolorum. <br />
+                    <mark> char length: 75 </mark>
+                  </code>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-5 bad-examples">
+              <strong class="danger-color">Bad Examples:</strong>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    <mark>feature</mark>(theme): add theme provider for dynamic theme
+                    switching
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    feat: configure i18n-js for TR and EN language support
+                    <br />
+                    <mark>There is no scope</mark>
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    feat<mark>()</mark>: add splash screen and app icon
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    chore(<mark>Set-up</mark>): add ESLint rules for code linting
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    docs(file): <mark>Add</mark> README file with project overview
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    fix(auth-service)<mark>:</mark>correct token validation
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    chore(deps) <mark>:</mark> update dependency versions
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    docs(readme): clarify installation steps<mark>.</mark>
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    test(unit): <mark>added</mark> test cases for login component
+                  </code>
+                </li>
+                <li class="list-group-item bad-examples">
+                  <code class="normal-color">
+                    feat(ui): lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quaerat voluptatibus molestias consequatur maiores ex, cupiditate
+                    culpa rerum eos explicabo sint. <br />
+                    <mark> max char length: 100 </mark>
+                  </code>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="mt-4 lead">
+            <small>
+              <em>
+                Adhering to these guidelines will ensure that your commit history remains
+                clean, informative, and easy to navigate.
+              </em>
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

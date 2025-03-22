@@ -92,7 +92,7 @@ export default defineConfig([
       'no-array-constructor': 'error',
       'no-bitwise': 'error',
       'no-case-declarations': 'error',
-      'no-console': ['error', { allow: ['warn', 'error'] }],
+      'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
       'no-delete-var': 'error',
       'no-else-return': ['error', { allowElseIf: true }],
       'no-empty': ['error', { allowEmptyCatch: true }],
