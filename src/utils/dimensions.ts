@@ -61,19 +61,61 @@ const getScale = (width: number): number => {
 
 const scale = getScale(deviceWidth);
 
-// horizontal & vertical scale
+const clampPercent = (percent: number): number => Math.max(0, Math.min(100, percent));
+
+/**
+ * ### Scales a horizontal size value based on screen width and scale factor
+ * @param {number} size - The original design size
+ * @returns {number} The scaled value
+ * @example
+ * const width = hs(16);
+ */
 const hs = (size: number): number => (deviceWidth / guidelineBaseWidth) * size * scale;
+
+/**
+ * ### Scales a vertical size value based on screen height
+ * @param {number} size - The original design size
+ * @returns {number} The scaled value
+ * @example
+ * const height = vs(12);
+ */
 const vs = (size: number): number => (deviceHeight / guidelineBaseHeight) * size;
 
-// width & height percent
-const clampPercent = (percent: number): number => Math.max(0, Math.min(100, percent));
+/**
+ * ### Converts a percentage into a pixel value based on screen width
+ * @param {number} percent - A value between 0 and 100
+ * @returns {number} The corresponding pixel width
+ * @example
+ * const boxWidth = wp(50); // 50% of screen width
+ */
 const wp = (percent: number): number => (deviceWidth * clampPercent(percent)) / 100;
+
+/**
+ * ### Converts a percentage into a pixel value based on screen height
+ * @param {number} percent - A value between 0 and 100
+ * @returns {number} The corresponding pixel height
+ * @example
+ * const boxHeight = hp(30); // 30% of screen height
+ */
 const hp = (percent: number): number => (deviceHeight * clampPercent(percent)) / 100;
 
-// moderate scale
+/**
+ * ### Applies moderate scaling to a size based on device width
+ * @param {number} size - The original size
+ * @param {number} [factor=0.5] - Scaling factor (between 0 and 1)
+ * @returns {number} The moderately scaled size
+ * @example
+ * const spacing = ms(20); // Scaled between 20 and hs(20)
+ */
 const ms = (size: number, factor = 0.5): number => size + (hs(size) - size) * factor;
 
-// font scale
+/**
+ * ### Scales font size based on device width and font scaling settings
+ * @param {number} size - The original font size
+ * @returns {number} The scaled font size
+ * @example
+ * const headingFontSize = fs(18);
+ */
 const fs = (size: number): number => {
   const fontScale = PixelRatio.getFontScale();
   return Math.round(PixelRatio.roundToNearestPixel(hs(size) * fontScale));

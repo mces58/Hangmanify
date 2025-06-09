@@ -20,10 +20,7 @@ export default {
     return {
       JSXOpeningElement(node) {
         const attributes = node.attributes.filter(
-          (attr) =>
-            attr.type === 'JSXAttribute' &&
-            attr.name &&
-            typeof attr.name.name === 'string'
+          (attr) => attr.type === 'JSXAttribute' && attr.name && typeof attr.name.name === 'string'
         );
 
         let prevName = null;

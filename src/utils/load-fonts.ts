@@ -7,6 +7,15 @@ import { APP_FONTS } from 'assets/fonts';
 // instead, import directly from specific files like '../styles/fonts'
 import { FONTS } from 'src/constants/styles/fonts';
 
+/**
+ * ### Loads custom fonts using Expo's Font module
+ * @returns {Promise<void>} Resolves when all fonts are loaded; logs an error if loading fails
+ * @example
+ * import { loadFonts } from './path/to/fonts';
+ * useEffect(() => {
+ *   loadFonts();
+ * }, []);
+ */
 export const loadFonts = async (): Promise<void> => {
   try {
     await Font.loadAsync({

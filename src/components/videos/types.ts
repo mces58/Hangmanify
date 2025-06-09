@@ -1,95 +1,40 @@
 import type { ViewStyle } from 'react-native';
 
-/**
- * ### Props for configuring the customizable Video component.
- * @export
- * @interface VideoProps
- */
+/**### Props for configuring the customizable Video component*/
 export interface VideoProps {
-  /**
-   * ### Source of the video; can be a local module (number) or a remote URL (string).
-   * @type {(number | string)}
-   * @memberof VideoProps
-   */
+  /**- Source of the video; can be a local module (number) or a remote URL (string)*/
   source: number | string;
 
-  /**
-   * ### If true, the video starts playing automatically when loaded.
-   * @type {boolean}
-   * @memberof VideoProps
-   */
+  /**- If true, the video starts playing automatically when loaded*/
   autoPlay?: boolean;
 
-  /**
-   * ### Defines how the video content should scale to fit its container.
-   * @type {('contain' | 'cover' | 'fill')}
-   * @memberof VideoProps
-   */
+  /**- Defines how the video content should scale to fit its container*/
   contentFit?: 'contain' | 'cover' | 'fill';
 
-  /**
-   * ### Initial playback position of the video in seconds.
-   * @type {number}
-   * @memberof VideoProps
-   */
+  /**- Initial playback position of the video in seconds*/
   initialPosition?: number;
 
-  /**
-   * ### If true, the video will replay automatically after finishing.
-   * @type {boolean}
-   * @memberof VideoProps
-   */
+  /**- If true, the video will replay automatically after finishing*/
   loop?: boolean;
 
-  /**
-   * ### Mutes the video audio if set to true.
-   * @type {boolean}
-   * @memberof VideoProps
-   */
+  /**- Mutes the video audio if set to true*/
   muted?: boolean;
 
-  /**
-   * ### Adds a shadow effect around the video container.
-   * @type {boolean}
-   * @memberof VideoProps
-   */
+  /**- Adds a shadow effect around the video container*/
   shadow?: '2xl' | 'lg' | 'md' | 'none' | 'sm' | 'xl' | 'xs';
 
-  /**
-   * ### Plays the video when it is pressed, if enabled.
-   * @type {boolean}
-   * @memberof VideoProps
-   */
+  /**- Plays the video when it is pressed, if enabled*/
   shouldPlayOnPress?: boolean;
 
-  /**
-   * ### Shows native or custom playback controls over the video.
-   * @type {boolean}
-   * @memberof VideoProps
-   */
+  /**- Shows native or custom playback controls over the video*/
   showControls?: boolean;
 
-  /**
-   * ### Sets custom dimensions and border radius for the video container.
-   * @type {(Pick<ViewStyle, 'borderRadius' | 'height' | 'width'>)}
-   * @memberof VideoProps
-   */
+  /**- Sets custom dimensions and border radius for the video container*/
   size?: Pick<ViewStyle, 'borderRadius' | 'height' | 'width'>;
 
-  /**
-   * ### Thumbnail generation options for the video.
-   * @type {{ enabled: boolean; time: number }}
-   * @memberof VideoProps
-   * @example
-   * // Generate a thumbnail from the 3rd second of the video
-   * thumbnail: { enabled: true, time: 3 }
-   */
+  /**- Thumbnail generation options for the video*/
   thumbnail?: { enabled: boolean; time: number };
 
-  /**
-   * ### Volume level of the video from 0 (muted) to 1 (maximum).
-   * @type {number}
-   * @memberof VideoProps
-   */
+  /**- Volume level of the video from 0 (muted) to 1 (maximum)*/
   volume?: number;
 }

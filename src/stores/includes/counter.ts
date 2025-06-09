@@ -3,7 +3,7 @@ import type { StateCreator } from 'zustand';
 export interface CounterState {
   readonly count: number; // ❌ useCounter().count = 5
   readonly decrease: () => void; // ❌ useCounter().decrease = () => console.log('override')
-  increase: () => void; // ❌ useCounter().increase = null
+  readonly increase: () => void; // ❌ useCounter().increase = null
 }
 
 export const createCounterSlice: StateCreator<CounterState> = (set) => ({

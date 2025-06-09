@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cn utility function adds class conditionally (true) 1`] = `"p-4 bg-black"`;
+
+exports[`cn utility function ignores conditional (false) 1`] = `"p-4"`;
+
+exports[`cn utility function ignores falsey values 1`] = `"p-4"`;
+
+exports[`cn utility function merges simple class names 1`] = `"p-4 text-red-500"`;
+
+exports[`cn utility function resolves tailwind conflicts 1`] = `"p-2"`;
+
+exports[`cn utility function returns empty string with only falsey values 1`] = `""`;
+
+exports[`cn utility function supports object syntax 1`] = `"bg-red-500"`;

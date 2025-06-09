@@ -80,6 +80,7 @@ export default ({ config }: { config: ExpoConfig }): ExpoConfig => ({
   android: getAndroidConfig(),
   ios: getIosConfig(),
   name: process.env.STORYBOOK_ENABLED ? 'Hangmanify Storybook' : config.name,
+  plugins: [assetPlugin, 'expo-localization', fontPlugin, splashScreenPlugin, videoPlugin],
   splash: getSplashConfig(),
   web: getWebConfig(),
   extra: {
@@ -87,11 +88,4 @@ export default ({ config }: { config: ExpoConfig }): ExpoConfig => ({
     eas: { projectId: 'ce993388-e5cf-41ce-9527-7554d7de672a' },
     storybookEnabled: process.env.STORYBOOK_ENABLED as boolean,
   },
-  plugins: [
-    assetPlugin,
-    'expo-localization',
-    fontPlugin,
-    splashScreenPlugin,
-    videoPlugin,
-  ],
 });

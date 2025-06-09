@@ -43,7 +43,7 @@
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.lineHeight": 2,
-  "editor.rulers": [90, 120],
+  "editor.rulers": [100, 120],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "breadcrumbs.enabled": true,
   "explorer.compactFolders": false,
@@ -315,6 +315,12 @@
       "base": "test-js",
       "color": "yellow-500",
       "fileExtensions": ["test.mjs", "test.mjs.snap"]
+    },
+    {
+      "name": "custom-haxe",
+      "base": "haxe",
+      "color": "orange-500",
+      "fileNames": ["cn.ts"]
     }
   ],
   "material-icon-theme.folders.customClones": [

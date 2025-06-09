@@ -14,10 +14,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppNavigation = (): React.JSX.Element => (
   <SafeAreaProvider>
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={RouteNames.HOME}
-        screenOptions={{ headerShown: false }}
-      >
+      <Stack.Navigator initialRouteName={RouteNames.HOME} screenOptions={{ headerShown: false }}>
         <Stack.Screen component={Home} name={RouteNames.HOME} />
         <Stack.Screen component={About} name={RouteNames.ABOUT} />
       </Stack.Navigator>

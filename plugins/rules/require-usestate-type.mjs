@@ -15,8 +15,7 @@ export default {
     return {
       CallExpression(node) {
         const callee = node.callee;
-        const isDirectUseState =
-          callee.type === 'Identifier' && callee.name === 'useState';
+        const isDirectUseState = callee.type === 'Identifier' && callee.name === 'useState';
         const isReactUseState =
           callee.type === 'MemberExpression' &&
           callee.object.type === 'Identifier' &&
@@ -27,8 +26,7 @@ export default {
         if (!isDirectUseState && !isReactUseState) return;
 
         const hasTypeArgument =
-          node.typeParameters?.params?.length > 0 ||
-          node.typeArguments?.params?.length > 0;
+          node.typeParameters?.params?.length > 0 || node.typeArguments?.params?.length > 0;
 
         if (!hasTypeArgument) {
           let calleeName = 'useState';

@@ -13,8 +13,7 @@ import * as Storybook from '.storybook';
 
 const isStorybookEnabled = Constants.expoConfig?.extra?.storybookEnabled as boolean;
 
-if (!isStorybookEnabled)
-  SplashScreen.preventAutoHideAsync().catch((error) => console.error(error));
+if (!isStorybookEnabled) SplashScreen.preventAutoHideAsync().catch((error) => console.error(error));
 
 const App = (): React.JSX.Element => {
   const [isAppReady, setIsAppReady] = useState<boolean>(isStorybookEnabled);

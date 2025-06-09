@@ -15,8 +15,7 @@ export default {
     messages: {
       mismatch:
         'Generic "{{used}}" does not match expected "RouteNames.{{expected}}" based on filename.',
-      missing:
-        'You must specify a generic like {{hook}}<RouteNames.{{expected}}> in this file.',
+      missing: 'You must specify a generic like {{hook}}<RouteNames.{{expected}}> in this file.',
       bannedImport:
         'Do not import "{{hook}}" from @react-navigation/native. Use your local wrapper instead.',
     },
@@ -26,8 +25,7 @@ export default {
   create(context) {
     const filename = context.getFilename().replace(/\\/g, '/');
 
-    const isScreenFile =
-      filename.includes('/src/screens/') || filename.includes('/tests/rules/');
+    const isScreenFile = filename.includes('/src/screens/') || filename.includes('/tests/rules/');
 
     if (!isScreenFile || !filename.endsWith('.tsx')) return {};
 

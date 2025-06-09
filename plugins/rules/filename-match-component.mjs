@@ -31,8 +31,7 @@ export default {
 
         if (declaration.type === 'Identifier') componentName = declaration.name;
         else if (
-          (declaration.type === 'FunctionDeclaration' ||
-            declaration.type === 'ClassDeclaration') &&
+          (declaration.type === 'FunctionDeclaration' || declaration.type === 'ClassDeclaration') &&
           declaration?.id.name
         )
           componentName = declaration.id.name;

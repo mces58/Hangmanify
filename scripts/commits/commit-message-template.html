@@ -43,9 +43,8 @@
         </div>
         <div class="card-body">
           <p class="lead">
-            A well-structured commit message enhances code readability and project
-            maintenance. Follow the guidelines below to ensure consistency and clarity in
-            your commit messages.
+            A well-structured commit message enhances code readability and project maintenance.
+            Follow the guidelines below to ensure consistency and clarity in your commit messages.
           </p>
 
           <h2 class="mt-4">STRUCTURE</h2>
@@ -53,9 +52,7 @@
           <pre class="bg-light p-2">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</pre>
 
           <h5 class="text-decoration-underline mt-4">1. <strong>TYPE</strong></h5>
-          <p>
-            <strong>Description:</strong> The type indicates the purpose of the commit.
-          </p>
+          <p><strong>Description:</strong> The type indicates the purpose of the commit.</p>
           <p><strong>Options:</strong> Use one of the following predefined types:</p>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><code>feat</code>: A new feature.</li>
@@ -68,8 +65,7 @@
             </li>
             <li class="list-group-item"><code>docs</code>: Documentation changes.</li>
             <li class="list-group-item">
-              <code>style</code>: Code style changes (formatting, missing semicolons,
-              etc.).
+              <code>style</code>: Code style changes (formatting, missing semicolons, etc.).
             </li>
             <li class="list-group-item"><code>perf</code>: Performance improvements.</li>
             <li class="list-group-item"><code>test</code>: Adding or updating tests.</li>
@@ -81,8 +77,8 @@
 
           <h5 class="text-decoration-underline mt-4">2. <strong>SCOPE</strong></h5>
           <p>
-            <strong>Description:</strong> The scope provides context about the area of the
-            codebase the commit affects.
+            <strong>Description:</strong> The scope provides context about the area of the codebase
+            the commit affects.
           </p>
           <p>
             <strong>Format:</strong> Use a short, descriptive noun in kebab-case (e.g.,
@@ -101,8 +97,8 @@
           <h5 class="text-decoration-underline mt-4">3. <strong>SUBJECT</strong></h5>
           <p><strong>Description:</strong> A concise description of the change.</p>
           <p>
-            <strong>Format:</strong> Write in the imperative mood, as if giving a command
-            or instruction.
+            <strong>Format:</strong> Write in the imperative mood, as if giving a command or
+            instruction.
           </p>
           <p>
             <strong>Case:</strong> Lowercase (e.g., <code>add</code>, <code>fix</code>,
@@ -117,22 +113,14 @@
           </ul>
 
           <h5 class="text-decoration-underline mt-4">4. <strong>LENGTH</strong></h5>
+          <p><strong>Subject line:</strong> The subject line should not exceed 100 characters.</p>
           <p>
-            <strong>Subject line:</strong> The subject line should not exceed 100
-            characters.
-          </p>
-          <p>
-            <strong>Body (optional):</strong> If necessary, add a more detailed
-            description in the body after a blank line following the subject.
+            <strong>Body (optional):</strong> If necessary, add a more detailed description in the
+            body after a blank line following the subject.
           </p>
 
-          <h5 class="text-decoration-underline mt-4">
-            5. <strong>CONTAINS A VERB</strong>
-          </h5>
-          <p>
-            <strong>Description:</strong> The commit message must contain at least one
-            verb.
-          </p>
+          <h5 class="text-decoration-underline mt-4">5. <strong>CONTAINS A VERB</strong></h5>
+          <p><strong>Description:</strong> The commit message must contain at least one verb.</p>
           <p>
             <strong>Example:</strong>
           </p>
@@ -149,8 +137,7 @@
           <p>
             <strong>Description:</strong>
             The script checks if the verb in the commit message is in the past tense. The
-            recommended practice is to use the imperative mood (present tense) for commit
-            messages.
+            recommended practice is to use the imperative mood (present tense) for commit messages.
           </p>
           <p>
             <strong>Wrong Example:</strong>
@@ -177,14 +164,13 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item good-examples">
                   <code class="normal-color">
-                    <mark>feat</mark>(theme): add theme provider for dynamic theme
-                    switching
+                    <mark>feat</mark>(theme): add theme provider for dynamic theme switching
                   </code>
                 </li>
                 <li class="list-group-item good-examples">
                   <code class="normal-color">
-                    feat<mark>(localization)</mark>: configure i18n-js for TR and EN
-                    language support
+                    feat<mark>(localization)</mark>: configure i18n-js for TR and EN language
+                    support
                   </code>
                 </li>
                 <li class="list-group-item good-examples">
@@ -224,8 +210,8 @@
                 </li>
                 <li class="list-group-item good-examples">
                   <code class="normal-color">
-                    feat(ui): lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nostrum, dolorum. <br />
+                    feat(ui): lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum,
+                    dolorum. <br />
                     <mark> char length &lt; 100 </mark>
                   </code>
                 </li>
@@ -236,8 +222,7 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item bad-examples">
                   <code class="normal-color">
-                    <mark>feature</mark>(theme): add theme provider for dynamic theme
-                    switching
+                    <mark>feature</mark>(theme): add theme provider for dynamic theme switching
                   </code>
                 </li>
                 <li class="list-group-item bad-examples">
@@ -284,9 +269,9 @@
                 </li>
                 <li class="list-group-item bad-examples">
                   <code class="normal-color">
-                    feat(ui): lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quaerat voluptatibus molestias consequatur maiores ex, cupiditate
-                    culpa rerum eos explicabo sint. <br />
+                    feat(ui): lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                    voluptatibus molestias consequatur maiores ex, cupiditate culpa rerum eos
+                    explicabo sint. <br />
                     <mark> max char length &gt; 100 </mark>
                   </code>
                 </li>
@@ -297,8 +282,8 @@
           <p class="lead mt-4">
             <small>
               <em>
-                Adhering to these guidelines will ensure that your commit history remains
-                clean, informative, and easy to navigate.
+                Adhering to these guidelines will ensure that your commit history remains clean,
+                informative, and easy to navigate.
               </em>
             </small>
           </p>

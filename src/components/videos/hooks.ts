@@ -41,9 +41,12 @@ interface VideoPlayer {
 }
 
 /**
- * ### Loads a video asset from a local module or remote URL and returns its local URI.
- * @param {LoadVideo['request']} { source: number | string }
- * @returns {LoadVideo['response']}  { uri: string | null }
+ * ### Loads a video asset and resolves its local URI
+ * @param {LoadVideo['request']} options - Options including the video file source
+ * @param {number | string} options.source - The video file source (local require(...) or remote URI)
+ * @returns {LoadVideo['response']} The loaded video URI
+ * @example
+ * const { uri } = useLoadVideo({ source: require('./video.mp4') });
  */
 const useLoadVideo = ({ source }: LoadVideo['request']): LoadVideo['response'] => {
   const [videoUri, setVideoUri] = useState<string | null>(null);
@@ -68,15 +71,16 @@ const useLoadVideo = ({ source }: LoadVideo['request']): LoadVideo['response'] =
 };
 
 /**
- * ### Generates a thumbnail image from a video at the specified time if enabled.
- * @param {Thumbnail['request']} { enabled: boolean, time: number, uri: string | null }
- * @returns {Thumbnail['response']}  { uri: string | null }
+ * ### Generates a thumbnail from a video at the specified time
+ * @param {Thumbnail['request']} options - Options including whether generation is enabled, target time, and video URI
+ * @param {boolean} options.enabled - Whether thumbnail generation is active
+ * @param {number} options.time - Target time (in seconds) to extract the thumbnail
+ * @param {string | null} options.uri - Video URI
+ * @returns {Thumbnail['response']} The thumbnail URI or null
+ * @example
+ * const { uri: thumbnail } = useThumbnail({ enabled: true, time: 2, uri: videoUri });
  */
-const useThumbnail = ({
-  enabled,
-  time,
-  uri,
-}: Thumbnail['request']): Thumbnail['response'] => {
+const useThumbnail = ({ enabled, time, uri }: Thumbnail['request']): Thumbnail['response'] => {
   const [thumbnailUri, setThumbnailUri] = useState<string | null>(null);
 
   useEffect((): (() => void) => {
@@ -101,13 +105,18 @@ const useThumbnail = ({
 };
 
 /**
- * ### Initializes and returns a video player instance with the provided config.
- * @param {VideoPlayer['request']} {
- *   config: { autoPlay: boolean, initialPosition: number, loop: boolean, muted: boolean, volume: number },
- *   onPlay?: () => void,
- *   source: VideoSource
- * }
- * @returns {VideoPlayer['response']}  { player: ExpoVideoPlayer }
+ * ### Initializes a video player with custom config and optional autoplay
+ * @param {VideoPlayer['request']} options - Configuration options for the video player
+ * @param {VideoSource} options.source - Source for the video (e.g., local or remote URI)
+ * @param {object} options.config - Playback settings
+ * @param {() => void} options.onPlay - Callback triggered after autoplay
+ * @returns {VideoPlayer['response']} The initialized video player instance
+ * @example
+ * const { player } = useVideoPlayer({
+ *   source: videoSource,
+ *   config: { autoPlay: true, loop: false, muted: false, volume: 1, initialPosition: 0 },
+ *   onPlay: () => console.log('Playing'),
+ * });
  */
 const useVideoPlayer = ({
   config,
@@ -126,14 +135,7 @@ const useVideoPlayer = ({
         onPlay?.();
       }
     },
-    [
-      config.autoPlay,
-      config.initialPosition,
-      config.loop,
-      config.muted,
-      config.volume,
-      onPlay,
-    ]
+    [config.autoPlay, config.initialPosition, config.loop, config.muted, config.volume, onPlay]
   );
 
   const player = useExpoVideoPlayer(source, initializePlayer);

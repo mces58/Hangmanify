@@ -17,14 +17,21 @@ const ThemeContext = createContext<ThemeContextProps>({
   toggleTheme: () => {},
 });
 
-const getThemeAndSystem = (
-  scheme: ColorSchemeName
-): Omit<ThemeContextProps, 'toggleTheme'> => ({
+const getThemeAndSystem = (scheme: ColorSchemeName): Omit<ThemeContextProps, 'toggleTheme'> => ({
   system: scheme === SYSTEM_THEME.DARK ? SYSTEM_THEME.DARK : SYSTEM_THEME.LIGHT,
   theme: scheme === SYSTEM_THEME.DARK ? DarkTheme : LightTheme,
 });
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+/**
+ * ### Provides theme context to the application
+ * @param {React.JSX.Element} props - React props containing `children`
+ * @returns {React.JSX.Element} React context provider for theming
+ * @example
+ * <ThemeProvider>
+ *   <App />
+ * </ThemeProvider>
+ */
+const ThemeProvider: React.FC<{ children: React.JSX.Element }> = ({
   children,
 }): React.JSX.Element => {
   const systemColorScheme = useColorScheme();
@@ -47,5 +54,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
-export const useTheme = (): ThemeContextProps =>
-  useContext<ThemeContextProps>(ThemeContext);
+/**
+ * ### Accesses the theme context values
+ * @returns {ThemeContextProps} Current theme data and toggling utility
+ * @example
+ * const { system, theme, toggleTheme } = useTheme();
+ * toggleTheme(); // Switch between light and dark
+ */
+const useTheme = (): ThemeContextProps => useContext<ThemeContextProps>(ThemeContext);
+
+export { ThemeProvider, useTheme };

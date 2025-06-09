@@ -33,12 +33,19 @@ const I18nContext = createContext<I18nContextProps>({
   toggleI18n: () => {},
 });
 
-export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
+/**
+ * ### Provides internationalization context to the app
+ * @param {React.JSX.Element} props - React props containing `children`
+ * @returns {React.JSX.Element} React context provider element
+ * @example
+ * <I18nProvider>
+ *   <App />
+ * </I18nProvider>
+ */
+const I18nProvider: React.FC<{ children: React.JSX.Element }> = ({
   children,
 }): React.JSX.Element => {
-  const [locale, setLocale] = useState<AvailableLanguages>(
-    i18n.locale as AvailableLanguages
-  );
+  const [locale, setLocale] = useState<AvailableLanguages>(i18n.locale as AvailableLanguages);
 
   const toggleI18n = (newLocale: AvailableLanguages): void => {
     i18n.locale = newLocale;
@@ -53,4 +60,13 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
   return <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>;
 };
 
-export const useI18n = (): I18nContextProps => useContext<I18nContextProps>(I18nContext);
+/**
+ * ### Accesses the i18n context values
+ * @returns {I18nContextProps} Locale info and translation utilities
+ * @example
+ * const { t, locale, toggleI18n } = useI18n();
+ * const greeting = t('home.welcome', { name: 'Can' });
+ */
+const useI18n = (): I18nContextProps => useContext<I18nContextProps>(I18nContext);
+
+export { I18nProvider, useI18n };

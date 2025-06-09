@@ -22,9 +22,13 @@ interface LoadVideoAsset {
 }
 
 /**
- * ### Generates a thumbnail image from the specified video URI and time.
- * @param {GenerateThumbnail['request']} { time: number, uri: string }
- * @returns {GenerateThumbnail['response']} { height: number; uri: string; width: number } | null;
+ * ### Generates a thumbnail from a video at a specific timestamp
+ * @param {GenerateThumbnail['request']} options - Options including video URI and timestamp
+ * @param {string} options.uri - Video file URI
+ * @param {number} options.time - Timestamp (in seconds) for the thumbnail
+ * @returns {Promise<GenerateThumbnail['response'] | null>} Thumbnail metadata or null on error
+ * @example
+ * const { height, uri, width } = await generateThumbnail({ uri: videoUri, time: 2 });
  */
 const generateThumbnail = async ({
   time,
@@ -40,9 +44,12 @@ const generateThumbnail = async ({
 };
 
 /**
- * ### Loads a local or remote video asset and returns its local URI.
- * @param {LoadVideoAsset['request']} { source: number | string }
- * @returns {LoadVideoAsset['response']} { uri: string | null } | null;
+ * ### Loads and resolves the local URI of a video asset
+ * @param {LoadVideoAsset['request']} options - Options including the video asset source
+ * @param {number | string} options.source - Video asset source (local module via `require` or remote URI)
+ * @returns {Promise<LoadVideoAsset['response'] | null>} Loaded asset URI or null on error
+ * @example
+ * const { uri } = await loadVideoAsset({ source: require('./video.mp4') });
  */
 const loadVideoAsset = async ({
   source,

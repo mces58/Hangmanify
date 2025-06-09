@@ -19,9 +19,7 @@ export default {
     function getChildNodes(node) {
       return Object.values(node)
         .flat()
-        .filter(
-          (child) => child && typeof child === 'object' && typeof child.type === 'string'
-        );
+        .filter((child) => child && typeof child === 'object' && typeof child.type === 'string');
     }
 
     function containsTryStatement(node) {

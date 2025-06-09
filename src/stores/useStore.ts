@@ -24,7 +24,14 @@ const useStore = create<StoreState>()(
   )
 );
 
-export const useCounter = (): CounterState => {
+/**
+ * ### Zustand hook for accessing counter slice
+ * @returns {CounterState} Current counter state and actions
+ * @example
+ * const { count, decrease, increase } = useCounter();
+ * increase();
+ */
+const useCounter = (): CounterState => {
   const { count, decrease, increase } = useStore<CounterState>(
     useShallow((state: CounterState) => ({
       count: state.count,
@@ -36,7 +43,14 @@ export const useCounter = (): CounterState => {
   return { count, decrease, increase };
 };
 
-export const useGlobalText = (): GlobalTextState => {
+/**
+ * ### Zustand hook for accessing global text slice
+ * @returns {GlobalTextState} Current text value and setter
+ * @example
+ * const { text, setText } = useGlobalText();
+ * setText('Hello world!');
+ */
+const useGlobalText = (): GlobalTextState => {
   const { text, setText } = useStore<GlobalTextState>(
     useShallow((state: GlobalTextState) => ({
       text: state.text,
@@ -46,3 +60,5 @@ export const useGlobalText = (): GlobalTextState => {
 
   return { text, setText };
 };
+
+export { useCounter, useGlobalText };

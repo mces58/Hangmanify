@@ -99,10 +99,7 @@ export default {
     let translationKeysStructure = {};
 
     try {
-      const filePath = resolve(
-        process.cwd(),
-        'src/constants/localization/translation-keys.d.ts'
-      );
+      const filePath = resolve(process.cwd(), 'src/constants/localization/translation-keys.d.ts');
       const fileContent = readFileSync(filePath, 'utf-8');
       translationKeysStructure = parseTranslationKeys(fileContent);
     } catch (error) {
